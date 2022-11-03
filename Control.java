@@ -49,22 +49,30 @@ public class Control {
 	
 	/**
 	 * @param choice
-	 * 	which of 3 ways will the customer be paying
-	 * @param item
-	 *            the actual card used if a card is being used (card may be null here)
+	 * 	which of 3 ways will we be adding the item
+	 * @param card
+	 *            what card are we using
 	 * @param station
-	 *            at what station is this occurying
+	 *            at what station is this occurring
+	 * @throws IOException 
 	 */
 	
-	public void pay(int choice, Card card, DoItYourselfStation station) {
+	public void pay(int choice, Card card, DoItYourselfStation station) throws IOException {
 		if(choice == 1) payCredit(card, station);
 		if(choice == 2) payCash();
 		if(choice == 3) payCrypto();
 		else System.out.printf("Invalid choice");
 	}
 	
-	void payCredit(Card card, DoItYourselfStation station) {
-		
+	/*
+	* payCredit() is the method we are fully developing
+	*/
+	void payCredit(Card card, DoItYourselfStation station) throws IOException {
+		Scanner input = new Scanner(System.in);
+		System.out.printf("Enter your pin: ");
+		String pin = input.toString();
+		station.cardReader.insert(card, pin);
+		input.close();
 	}
 	
 	void payCash() {}

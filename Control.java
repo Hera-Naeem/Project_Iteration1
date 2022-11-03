@@ -8,7 +8,14 @@ public class Control {
 	
 	
 	
-	
+	/**
+	 * @param choice
+	 * 	which of 3 ways will we be adding the item
+	 * @param item
+	 *            what item are we trying to add
+	 * @param station
+	 *            at what station is this occurying
+	 */
 	
 	public void addItem(int choice, Item item, DoItYourselfStation station) {
 		if(choice == 1) 
@@ -20,6 +27,9 @@ public class Control {
 		else System.out.printf("Invalid choice");
 	}
 	
+	/*
+	* addItemScan() is the method we are fully developing
+	*/
 	void addItemScan(Item item, DoItYourselfStation station) {
 		
 	}

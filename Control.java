@@ -45,6 +45,8 @@ public class Control {
 	void addItemText() {}
 	void addItemBrowse() {}
 	
+/*-------------------------------------------------------------------------------------------------------
+	
 	/**
 	 * @param choice
 	 * 	which of 3 ways will the customer be paying

@@ -19,7 +19,7 @@ public class Control {
 	
 	public void addItem(int choice, Item item, DoItYourselfStation station) {
 		if(choice == 1) 
-			addItemScan(item, station);
+			addItemScan((BarcodedItem) item, station);
 		if(choice == 2) 
 			addItemText();
 		if(choice == 3) 
@@ -27,6 +27,7 @@ public class Control {
 		else System.out.printf("Invalid choice");
 	}
 	
+
 	/*
 	* addItemScan() is the method we are fully developing
 	* @param item and station, same as in addItem()
@@ -35,7 +36,7 @@ public class Control {
 	*             if the item or station are null
 	*/
 	
-	void addItemScan(Item item, DoItYourselfStation station) {
+	void addItemScan(BarcodedItem item, DoItYourselfStation station) {
 		if(item == null)
 			throw new NullPointerSimulationException("item");
 		if(station == null)
@@ -43,6 +44,12 @@ public class Control {
 		
 		station.plugIn();
 		station.turnOn();
+		
+		// Continue trying to scan the item until it works
+		boolean successfulScan = false;
+		while (successfulScan == false) {
+			station.scanner.scan(item);
+		}	
 	}
 	
 	void addItemText() {}

@@ -1,8 +1,14 @@
 package com.diy.control;
 
+import java.io.IOException;
+import java.util.Scanner;
+
 import com.diy.hardware.DoItYourselfStation;
 import com.jimmyselectronics.Item;
+import com.jimmyselectronics.necchi.BarcodedItem;
 import com.jimmyselectronics.opeechee.Card;
+
+import ca.ucalgary.seng300.simulation.NullPointerSimulationException;
 
 public class Control {
 	

@@ -6,7 +6,7 @@ import com.jimmyselectronics.opeechee.Card;
 
 public class Control {
 	
-	
+	private double totalDue;
 	
 	/**
 	 * @param choice
@@ -63,7 +63,6 @@ public class Control {
 /*-------------------------------------------------------------------------------------------------------
 	
 	/**
-	 * @param choice
 	 * 	which of 3 ways will we be adding the item
 	 * @param card
 	 *            what card are we using
@@ -72,11 +71,21 @@ public class Control {
 	 * @throws IOException 
 	 */
 	
-	public void pay(int choice, Card card, DoItYourselfStation station) throws IOException {
-		if(choice == 1) payCredit(card, station);
-		if(choice == 2) payCash();
-		if(choice == 3) payCrypto();
-		else System.out.printf("Invalid choice");
+	public void pay(Card card, DoItYourselfStation station) throws IOException {
+		Scanner input = new Scanner(System.in);
+		while (totalDue > 0) {
+			System.out.printf("Total amount due: %d\n", totalDue);
+			System.out.println("1. Pay with Credit");
+			System.out.println("2. Pay with Cash");
+			System.out.println("3. Pay with Crypto");
+			System.out.printf("Choose your payment method: ");
+			int choice = input.nextInt();
+			if(choice == 1) payCredit(card, station);
+			if(choice == 2) payCash();
+			if(choice == 3) payCrypto();
+			else System.out.printf("Invalid choice");
+		}
+		input.close();
 	}
 	
 	/*

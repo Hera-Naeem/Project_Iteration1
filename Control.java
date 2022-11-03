@@ -20,7 +20,7 @@ public class Control {
 	 * @param item
 	 *            what item are we trying to add
 	 * @param station
-	 *            at what station is this occurying
+	 *            at what station is this occurring
 	 */
 	
 	public void addItem(int choice, Item item, DoItYourselfStation station) {

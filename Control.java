@@ -22,7 +22,7 @@ public class Control {
 	public void pay(int choice, Card card) {
 		if(choice == 1) payCredit();
 		if(choice == 2) payCash();
-		if(choice == 2) payCrypto();
+		if(choice == 3) payCrypto();
 		else System.out.printf("Invalid choice");
 	}
 	

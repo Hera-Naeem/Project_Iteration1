@@ -24,7 +24,12 @@ public class Control {
 			addItemText();
 		if(choice == 3) 
 			addItemBrowse();
-		else System.out.printf("Invalid choice");
+		else System.out.printf("Invalid choice"); // default choice choice be addItemScan
+
+		// actually adding the item to the bagging area
+		
+		station.baggingArea.add(item);
+
 	}
 	
 

@@ -1,9 +1,10 @@
 package com.diy.control;
 
+import com.jimmyselectronics.Item;
 
 public class Control {
 
-	public void addItem(int choice) {
+	public void addItem(int choice, Item item) {
 		if(choice == 1) addItemScan();
 		if(choice == 2) addItemText();
 		if(choice == 3) addItemBrowse();

@@ -40,6 +40,9 @@ public class Control {
 			throw new NullPointerSimulationException("item");
 		if(station == null)
 			throw new NullPointerSimulationException("station");
+		
+		station.plugIn();
+		station.turnOn();
 	}
 	
 	void addItemText() {}

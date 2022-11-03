@@ -37,6 +37,15 @@ public class Control {
 	void addItemText() {}
 	void addItemBrowse() {}
 	
+	/**
+	 * @param choice
+	 * 	which of 3 ways will the customer be paying
+	 * @param item
+	 *            the actual card used if a card is being used (card may be null here)
+	 * @param station
+	 *            at what station is this occurying
+	 */
+	
 	public void pay(int choice, Card card, DoItYourselfStation station) {
 		if(choice == 1) payCredit(card, station);
 		if(choice == 2) payCash();

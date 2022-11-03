@@ -1,6 +1,7 @@
 package com.diy.control;
 
 import com.jimmyselectronics.Item;
+import com.jimmyselectronics.opeechee.Card;
 
 public class Control {
 
@@ -18,7 +19,7 @@ public class Control {
 	void addItemText() {}
 	void addItemBrowse() {}
 	
-	public void pay(int choice) {
+	public void pay(int choice, Card card) {
 		if(choice == 1) payCredit();
 		if(choice == 2) payCash();
 		if(choice == 2) payCrypto();

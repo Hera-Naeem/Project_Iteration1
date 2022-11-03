@@ -73,6 +73,8 @@ public class Control {
 	
 	public void pay(Card card, DoItYourselfStation station) throws IOException {
 		Scanner input = new Scanner(System.in);
+		// Prompts user to pay until totalDue is 0
+		// only using System I/O at the moment
 		while (totalDue > 0) {
 			System.out.printf("Total amount due: %d\n", totalDue);
 			System.out.println("1. Pay with Credit");

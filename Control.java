@@ -29,9 +29,17 @@ public class Control {
 	
 	/*
 	* addItemScan() is the method we are fully developing
+	* @param item and station, same as in addItem()
+	* 
+	* @throws NullPointerSimulationException
+	*             if the item or station are null
 	*/
+	
 	void addItemScan(Item item, DoItYourselfStation station) {
-		
+		if(item == null)
+			throw new NullPointerSimulationException("item");
+		if(station == null)
+			throw new NullPointerSimulationException("station");
 	}
 	
 	void addItemText() {}

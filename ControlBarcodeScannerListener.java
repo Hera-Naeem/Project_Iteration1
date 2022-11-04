@@ -6,11 +6,12 @@ import com.jimmyselectronics.necchi.*;
 public class ControlBarcodeScannerListener implements BarcodeScannerListener {
 
 
-
+	/*
+	 * Here lies our trouble in sending the necessary information for Control
+	 */
 	@Override
 	public void barcodeScanned(BarcodeScanner barcodeScanner, Barcode barcode) {
-		// TODO Auto-generated method stub
-		
+		//used to signal Control the barcode that was scanned
 	}
 	
 	@Override

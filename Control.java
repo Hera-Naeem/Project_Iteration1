@@ -19,6 +19,11 @@ public class Control {
 		// register our listener to our scanner 
 		ourStation.scanner.register(ourListener);
 		
+		Barcode myBarcode = new Barcode(new Numeral[] { Numeral.one, Numeral.two, Numeral.three, Numeral.four }); // 1234
+		BarcodedProduct apple = new BarcodedProduct(myBarcode, "apple", 2, 100); 
+
+		ProductDatabases.BARCODED_PRODUCT_DATABASE.put(myBarcode, apple);
+		
 	}
 	
 	public void addItem(int choice, Item item, DoItYourselfStation station) {

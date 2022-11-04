@@ -11,6 +11,16 @@ import ca.ucalgary.seng300.simulation.NullPointerSimulationException;
 
 public class Control {
 	
+	public static void main (String [args]) {
+		
+		// instantiate listener and station
+		ControlBarcodeScannerListener ourListener = new ControlBarcodeScannerListener(); 
+		DoItYourselfStation ourStation = new DoItYourselfStation();
+		// register our listener to our scanner 
+		ourStation.scanner.register(ourListener);
+		
+	}
+	
 	public void addItem(int choice, Item item, DoItYourselfStation station) {
 		if(choice == 1) 
 			addItemScan((BarcodedItem) item, station);
@@ -23,20 +33,6 @@ public class Control {
 		// actually adding the item to the bagging area
 		station.baggingArea.add(item);
 		
-		
-		
-		/////////////////// what we discussed in tutotial
-
-		// instantiate listener and station
-		ControlBarcodeScannerListener ourListener = new ControlBarcodeScannerListener(); 
-		DoItYourselfStation ourStation = new DoItYourselfStation();
-		// register our listener to our scanner 
-		ourStation.scanner.register(ourListener);
-		
-
-
-		
-
 	}
 	
 

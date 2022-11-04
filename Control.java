@@ -24,27 +24,28 @@ public class Control {
 	// This main function is used to demo the control software
 	public static void main () {
 		
-		// Creating a database with a barcoded item: an apple :)
+		// Creating a product database with a barcoded item: an apple :)
 		Barcode myBarcode = new Barcode(new Numeral[] { Numeral.one, Numeral.two, Numeral.three, Numeral.four }); // 1234
+		// constructor is BarcodedProduct(barcode, name, price, weight)
 		BarcodedProduct apple = new BarcodedProduct(myBarcode, "apple", 2, 100); 
-		ProductDatabases.BARCODED_PRODUCT_DATABASE.put(myBarcode, apple);
+		ProductDatabases.BARCODED_PRODUCT_DATABASE.put(myBarcode, apple); // adding our barcoded product to the database
 		
 		
-		BarcodedItem appleItem = new BarcodedItem(myBarcode, 100);
-		// instantiate listener and station
-		Customer testCustomer = new Customer();
+		BarcodedItem appleItem = new BarcodedItem(myBarcode, 100);  // make a barcoded item out of our barcoded product
+		Customer testCustomer = new Customer();  // make a fake customer add this apple to their cart
 		testCustomer.shoppingCart.add(appleItem);
+		
+		// instantiate listener and station
 		ControlBarcodeScannerListener ourScannerListener = new ControlBarcodeScannerListener(); 
 		DoItYourselfStation ourStation = new DoItYourselfStation();
-		// register our listener to our scanner 
-		ourStation.scanner.register(ourScannerListener);
-		
+		ourStation.scanner.register(ourScannerListener);	// register our listener to our station's scanner 
+
+		// the test customer will use and scan the specific instances of our station and apple
 		testCustomer.useStation(ourStation);
 		testCustomer.selectNextItem();
 		testCustomer.scanItem();
-		Item ourItem;		
 		
-		
+		//Item ourItem;		
 	}
 	
 	// Total Amount of payment due
@@ -60,19 +61,29 @@ public class Control {
 		 * 5. Bagging Area: Signals the weight change from the added item.
 		 * 6. System: Unblocks the station.
 		 */
-		if(choice == 1) 
-			addItemScan((BarcodedItem) item, station);
-		if(choice == 2) 
-			addItemText();
-		if(choice == 3) 
-			addItemBrowse();
-		else System.out.printf("Invalid choice"); // default choice choice be addItemScan
+		
+		boolean contShopping = false;		
+		Scanner input = new Scanner(System.in);
 
+		while (!contShopping) {
+			System.out.println("How would you like to add your next item?");
+			System.out.println("1. Pay with Credit");
+			System.out.println("2. Pay with Cash");
+			System.out.println("3. Pay with Crypto");
+			System.out.printf("Choose your payment method: ");
+			int additionChoice = input.nextInt(); // storing customer desired payment method in variable choice
+			
+			if(additionChoice == 1) 
+				addItemScan((BarcodedItem) item, station);
+			if(additionChoice == 2) 
+				addItemText();
+			if(additionChoice == 3) 
+				addItemBrowse();
+			else System.out.printf("Invalid choice"); // default choice choice be addItemScan
+		}
+		
 		// actually adding the item to the bagging area
 		station.baggingArea.add(item);
-		
-			
-
 	}
 	
 
@@ -95,6 +106,10 @@ public class Control {
 		 * 6. Bagging Area: Signals to the System that the weight has changed.
 		 * 7. System: Unblocks the station.
 		 */
+		
+		
+
+		
 		if(item == null)
 			throw new NullPointerSimulationException("item");
 		if(station == null)
@@ -168,9 +183,9 @@ public class Control {
 		 */
 		System.out.println("Please insert your Credit card");
 		//(1.)
-		while (//cardReaderListener say !cardInserted) {
+		//while (/*cardReaderListener say !cardInserted*/) {
 			// wait for cardReaderListener to say !cardInserted
-		}
+		//}
 		//(2.)
 		// Already done by card.CardInsertData()
 		//(3.)

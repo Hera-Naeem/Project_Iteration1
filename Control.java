@@ -24,39 +24,64 @@ public class Control {
 	// This main function is used to demo the control software
 	public static void main () {
 		
-		// Creating a product database with a barcoded item: an apple :)
-		Barcode myBarcode = new Barcode(new Numeral[] { Numeral.one, Numeral.two, Numeral.three, Numeral.four }); // 1234
+		
+		//  Creating a product database with a barcoded item: an apple, orange banana
+		
+		Barcode myAppleBarcode = new Barcode(new Numeral[] { Numeral.one, Numeral.two, Numeral.three, Numeral.four }); // 1234
 		// constructor is BarcodedProduct(barcode, name, price, weight)
-		BarcodedProduct apple = new BarcodedProduct(myBarcode, "apple", 2, 100); 
-		ProductDatabases.BARCODED_PRODUCT_DATABASE.put(myBarcode, apple); // adding our barcoded product to the database
+		BarcodedProduct apple = new BarcodedProduct(myAppleBarcode, "apple", 2, 100); 
+		ProductDatabases.BARCODED_PRODUCT_DATABASE.put(myAppleBarcode, apple); // adding our barcoded product to the database
+		
+		Barcode myOrangeBarcode = new Barcode(new Numeral[] { Numeral.one, Numeral.one, Numeral.two, Numeral.two }); // 1122
+		BarcodedProduct orange = new BarcodedProduct(myOrangeBarcode, "orange", 2, 100); 
+		ProductDatabases.BARCODED_PRODUCT_DATABASE.put(myOrangeBarcode, orange); // adding our barcoded product to the database
+				
+		Barcode myBananaBarcode = new Barcode(new Numeral[] { Numeral.two, Numeral.two, Numeral.three, Numeral.three }); // 2233
+		BarcodedProduct banana = new BarcodedProduct(myBananaBarcode, "banana", 2, 100); 
+		ProductDatabases.BARCODED_PRODUCT_DATABASE.put(myBananaBarcode, banana); // adding our barcoded product to the database
 		
 		
-		BarcodedItem appleItem = new BarcodedItem(myBarcode, 100);  // make a barcoded item out of our barcoded product
-		Customer testCustomer = new Customer();  // make a fake customer add this apple to their cart
+		
+		// creating ITEMS of our barcodedProducts apple, orange, banana
+		
+		BarcodedItem appleItem = new BarcodedItem(myAppleBarcode, 100);  // make a barcoded item out of our barcoded product
+		BarcodedItem orangeItem = new BarcodedItem(myOrangeBarcode, 110);  // make a barcoded item out of our barcoded product
+		BarcodedItem bananaItem = new BarcodedItem(myBananaBarcode, 120);  // make a barcoded item out of our barcoded product
+
+		// instantiating a customer (testCustomer) and adding the apple, orange, and banana to their cart
+		
+		Customer testCustomer = new Customer();  
 		testCustomer.shoppingCart.add(appleItem);
-		
-		// instantiate listener and station
-		ControlBarcodeScannerListener ourScannerListener = new ControlBarcodeScannerListener(null); 
-		ControlElectronicScaleListener ourScaleListener = new ControlElectronicScaleListener();
-		ControlCardReaderListener ourCardReaderListener = new ControlCardReaderListener();
+		testCustomer.shoppingCart.add(orangeItem);
+		testCustomer.shoppingCart.add(bananaItem);
+
 		
 		//instantiating a station for our use
 		DoItYourselfStation ourStation = new DoItYourselfStation();
 		
+		// instantiate listeners
+		ControlBarcodeScannerListener ourScannerListener = new ControlBarcodeScannerListener(null); 
+		ControlElectronicScaleListener ourScaleListener = new ControlElectronicScaleListener();
+		ControlCardReaderListener ourCardReaderListener = new ControlCardReaderListener();
+		
+		
 		// registering the listeners for each of our stations needs
 		ourStation.scanner.register(ourScannerListener);	// for add by scanning
-		ourStation.baggingArea.register(ourScaleListener);	// for add by scanning
-		 
+		ourStation.baggingArea.register(ourScaleListener);	// for add by scanning 
 		ourStation.cardReader.register(ourCardReaderListener);	// for pay by credit 
 
+		
+		//--------------------------------------- I feel pretty confident in the set up up until this point.
+		// not sure what is happening right below with the test customer and how that works-catalina
 		
 		// the test customer will use and scan the specific instances of our station and apple
 		testCustomer.useStation(ourStation);
 		testCustomer.selectNextItem();
 		testCustomer.scanItem();
 		
-		//Item ourItem;		
-	}
+	} // end of main function here
+	
+	
 	
 	// Total Amount of payment due
 	double totalAmountDue;

@@ -1,28 +1,44 @@
 package com.diy.control;
 
+import com.diy.hardware.BarcodedProduct;
+
 //import java.io.IOException;
 
 import com.diy.hardware.DoItYourselfStation;
+import com.diy.hardware.external.ProductDatabases;
+import com.diy.simulation.Customer;
 import com.jimmyselectronics.Item;
+import com.jimmyselectronics.necchi.Barcode;
 import com.jimmyselectronics.necchi.BarcodedItem;
+import com.jimmyselectronics.necchi.Numeral;
 import com.jimmyselectronics.opeechee.Card;
 
 import ca.ucalgary.seng300.simulation.NullPointerSimulationException;
 
 public class Control {
 	
-	public static void main (String [args]) {
+	public static void main () {
 		
-		// instantiate listener and station
-		ControlBarcodeScannerListener ourListener = new ControlBarcodeScannerListener(); 
-		DoItYourselfStation ourStation = new DoItYourselfStation();
-		// register our listener to our scanner 
-		ourStation.scanner.register(ourListener);
-		
+		// Creating a database with a barcoded item: an apple :)
 		Barcode myBarcode = new Barcode(new Numeral[] { Numeral.one, Numeral.two, Numeral.three, Numeral.four }); // 1234
 		BarcodedProduct apple = new BarcodedProduct(myBarcode, "apple", 2, 100); 
-
 		ProductDatabases.BARCODED_PRODUCT_DATABASE.put(myBarcode, apple);
+		
+		
+		BarcodedItem appleItem = new BarcodedItem(myBarcode, 100);
+		// instantiate listener and station
+		Customer testCustomer = new Customer();
+		testCustomer.shoppingCart.add(appleItem);
+		ControlBarcodeScannerListener ourScannerListener = new ControlBarcodeScannerListener(); 
+		DoItYourselfStation ourStation = new DoItYourselfStation();
+		// register our listener to our scanner 
+		ourStation.scanner.register(ourScannerListener);
+		
+		testCustomer.useStation(ourStation);
+		testCustomer.selectNextItem();
+		testCustomer.scanItem();
+		Item ourItem;		
+		
 		
 	}
 	
@@ -38,6 +54,8 @@ public class Control {
 		// actually adding the item to the bagging area
 		station.baggingArea.add(item);
 		
+			
+
 	}
 	
 

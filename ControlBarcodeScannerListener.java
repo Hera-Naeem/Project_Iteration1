@@ -12,6 +12,7 @@ public class ControlBarcodeScannerListener implements BarcodeScannerListener {
 	@Override
 	public void barcodeScanned(BarcodeScanner barcodeScanner, Barcode barcode) {
 		//used to signal Control the barcode that was scanned
+		// check SampleBarcodeScannerListener from his code
 	}
 	
 	@Override

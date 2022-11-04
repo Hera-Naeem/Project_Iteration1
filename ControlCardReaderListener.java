@@ -9,28 +9,13 @@ import com.jimmyselectronics.opeechee.Card.CardData;
 public class ControlCardReaderListener implements CardReaderListener{
 
 	@Override
-	public void enabled(AbstractDevice<? extends AbstractDeviceListener> device) {
-		// TODO Auto-generated method stub
-		
-	}
-
+	public void enabled(AbstractDevice<? extends AbstractDeviceListener> device) {}
 	@Override
-	public void disabled(AbstractDevice<? extends AbstractDeviceListener> device) {
-		// TODO Auto-generated method stub
-		
-	}
-
+	public void disabled(AbstractDevice<? extends AbstractDeviceListener> device) {}
 	@Override
-	public void turnedOn(AbstractDevice<? extends AbstractDeviceListener> device) {
-		// TODO Auto-generated method stub
-		
-	}
-
+	public void turnedOn(AbstractDevice<? extends AbstractDeviceListener> device) {}
 	@Override
-	public void turnedOff(AbstractDevice<? extends AbstractDeviceListener> device) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void turnedOff(AbstractDevice<? extends AbstractDeviceListener> device) {}
 
 	@Override
 	public void cardInserted(CardReader reader) {

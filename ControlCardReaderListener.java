@@ -17,22 +17,23 @@ public class ControlCardReaderListener implements CardReaderListener{
 	@Override
 	public void turnedOff(AbstractDevice<? extends AbstractDeviceListener> device) {}
 
+	
+	/*
+	 * Here lies our trouble in sending the necessary information for Control
+	 */
 	@Override
 	public void cardInserted(CardReader reader) {
-		// TODO Auto-generated method stub
-		
+		//used to signal Control that the card is inserted
 	}
 
 	@Override
 	public void cardRemoved(CardReader reader) {
-		// TODO Auto-generated method stub
-		
+		//used to signal Control that the card is removed
 	}
 
 	@Override
 	public void cardDataRead(CardReader reader, CardData data) {
-		// TODO Auto-generated method stub
-		
+		//used to signal Control that the card data was read
 	}
 
 }

@@ -36,10 +36,20 @@ public class Control {
 		testCustomer.shoppingCart.add(appleItem);
 		
 		// instantiate listener and station
-		ControlBarcodeScannerListener ourScannerListener = new ControlBarcodeScannerListener(); 
+		ControlBarcodeScannerListener ourScannerListener = new ControlBarcodeScannerListener(null); 
+		ControlElectronicScaleListener ourScaleListener = new ControlElectronicScaleListener();
+		ControlCardReaderListener ourCardReaderListener = new ControlCardReaderListener();
+		
+		//instantiating a station for our use
 		DoItYourselfStation ourStation = new DoItYourselfStation();
-		ourStation.scanner.register(ourScannerListener);	// register our listener to our station's scanner 
+		
+		// registering the listeners for each of our stations needs
+		ourStation.scanner.register(ourScannerListener);	// for add by scanning
+		ourStation.baggingArea.register(ourScaleListener);	// for add by scanning
+		 
+		ourStation.cardReader.register(ourCardReaderListener);	// for pay by credit 
 
+		
 		// the test customer will use and scan the specific instances of our station and apple
 		testCustomer.useStation(ourStation);
 		testCustomer.selectNextItem();
@@ -81,6 +91,8 @@ public class Control {
 				addItemBrowse();
 			else System.out.printf("Invalid choice"); // default choice choice be addItemScan
 		}
+		input.close();
+
 		
 		// actually adding the item to the bagging area
 		station.baggingArea.add(item);

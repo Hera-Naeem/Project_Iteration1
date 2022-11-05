@@ -12,7 +12,7 @@ public class CustomerGUI (){
   JPanel GUIPanel;
   JTextField chooseScanType;
   JLabel checkoutItem;
-  JButton scanBarcode, enterPLU, searchItem, weighItem;
+  JButton scanBarcode, enterPLU, searchItem, weighItem, callAttendant;
   
   public CustomerGUI{
     GUIFrame = new JFrame("SELF-CHECKOUT STATION);
@@ -38,6 +38,7 @@ public class CustomerGUI (){
     weighItem = new JButton("Weigh Item");
     enterPLU = new JButton("Enter PLU");
     searchItem = new JButton("Search Item");
+    callAttendant = new JButton("Call Attendant");
     
     // Integrate Barcode Scanner/Listener here?
     //scanBarcode.addbarcodeListener(e ->{
@@ -48,6 +49,7 @@ public class CustomerGUI (){
     GUIPanel.add(weighItem);
     GUIPanel.add(enterPLU);
     GUIPanel.add(searchItem);
+    GUIPanel.add(callAttendant);
     }
     
     private String checkoutMethod(String item) {

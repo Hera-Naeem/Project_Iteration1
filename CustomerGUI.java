@@ -38,7 +38,6 @@ public class CustomerGUI (){
     weighItem = new JButton("Weigh Item");
     enterPLU = new JButton("Enter PLU");
     searchItem = new JButton("Search Item");
-    checkoutItem = new JLabel("Checkout Items Here", SwingConstants.CENTER);
     
     // Integrate Barcode Scanner/Listener here?
     //scanBarcode.addbarcodeListener(e ->{
@@ -46,9 +45,9 @@ public class CustomerGUI (){
 
     GUIPanel.add(chooseScanType);
     GUIPanel.add(scanBarcode);
+    GUIPanel.add(weighItem);
     GUIPanel.add(enterPLU);
     GUIPanel.add(searchItem);
-    GUIPanel.add(checkoutItem);
     }
     
     private String checkoutMethod(String item) {

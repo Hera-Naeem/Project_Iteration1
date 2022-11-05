@@ -7,15 +7,15 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import java.awt.*;
 
-public class CustomerGUI (){
+public class CustomerGUI{
   JFrame GUIFrame;
   JPanel GUIPanel;
   JTextField chooseScanType;
   JLabel checkoutItem;
   JButton scanBarcode, enterPLU, searchItem, weighItem, callAttendant;
   
-  public CustomerGUI{
-    GUIFrame = new JFrame("SELF-CHECKOUT STATION);
+  public CustomerGUI (){
+    GUIFrame = new JFrame("SELF-CHECKOUT STATION");
     GUIPanel = new JPanel();
     GUIPanel.setLayout(new GridLayout(0,2));
     // Adding widgets to the panel and frame

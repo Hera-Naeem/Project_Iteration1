@@ -7,12 +7,12 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import java.awt.*;
 
-public class CustomerGUI{
+public class CustomerGUI (){
   JFrame GUIFrame;
-  JPanel GUI Panel;
+  JPanel GUIPanel;
   JTextField chooseScanType;
   JLabel checkoutItem;
-  JButton scanBarcode, enterPLU, searchItem;
+  JButton scanBarcode, enterPLU, searchItem, weighItem;
   
   public CustomerGUI{
     GUIFrame = new JFrame("SELF-CHECKOUT STATION);
@@ -35,6 +35,7 @@ public class CustomerGUI{
   private void addWidgets() {
     chooseScanType = new JTextField();
     scanBarcode = new JButton("Scan Barcode");
+    weighItem = new JButton("Weigh Item");
     enterPLU = new JButton("Enter PLU");
     searchItem = new JButton("Search Item");
     checkoutItem = new JLabel("Checkout Items Here", SwingConstants.CENTER);

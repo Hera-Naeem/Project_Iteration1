@@ -66,7 +66,7 @@ public class CustomerGUI{
     //Updating the item's PLU status
     enterPLU.addActionListener(e -> {
       String item = checkoutMethod("");
-      pluLabel.setText(item + "PLU number entered, and the item has been scanned successfully");
+      pluLabel.setText(item + "PLU number entered, and the item has been scanned successfully!");
     });
     
     //updating the item's search status
@@ -78,7 +78,7 @@ public class CustomerGUI{
     //updating the attendant's status
     callAttendant.addActionListener(e -> {
     	String item = checkoutMethod("");
-    	attendantLabel.setText(item + "Attendant arriving shortly");
+    	attendantLabel.setText(item + "An attendant will be arriving shortly.");
     });
     
     //updating the payment status

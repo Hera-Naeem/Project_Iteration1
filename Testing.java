@@ -57,5 +57,22 @@ public class AddItemTest {
 
         assertEquals(expected, cart.itemsAdded);
     }
+    
+    @Test
+	public void addBarcodedItemTest() {
+		System.out.println("In test");
+		System.out.println("\nItem scanned");
+		systemControl.station.scanner.scan(item);
+		System.out.println("\nItem Added to bagging area");
+		systemControl.station.baggingArea.add(item);
+	}
+    
+    @Test
+	public void getBillTotalTest() {
+		systemControl.station.scanner.scan(item);
+		systemControl.station.baggingArea.add(item);
+        assertTrue(systemControl.getBillTotal());
+        
+    }
 
 }

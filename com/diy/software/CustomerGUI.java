@@ -27,6 +27,8 @@ public class CustomerGUI{
     GUIFrame.pack();
     GUIFrame.setVisible(true);
     
+    //setting the frame/window size
+    GUIFrame.setSize(700, 300);
   }
 
 //Creating the widgets that will be added to the frame and panel

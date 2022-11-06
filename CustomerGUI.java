@@ -3,16 +3,14 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
 import java.awt.*;
 
 public class CustomerGUI{
   JFrame GUIFrame;
   JPanel GUIPanel;
-  JLabel itemLabel, weighLabel, pluLabel;
+  JLabel itemLabel, weighLabel, pluLabel, searchItemLabel, attendantLabel, cardPaymentLabel ;
   JLabel checkoutItem;
-  JButton scanBarcode, enterPLU, searchItem, weighItem, callAttendant;
+  JButton scanBarcode, enterPLU, searchItem, weighItem, callAttendant, payWithCard;
   
   public CustomerGUI (){
     GUIFrame = new JFrame("SELF-CHECKOUT STATION");
@@ -25,7 +23,7 @@ public class CustomerGUI{
     GUIFrame.getContentPane().add(GUIPanel, BorderLayout.CENTER);
     
     //Setting the GUI to stay open until it is exited
-    GUIFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //
+    GUIFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
     GUIFrame.pack();
     GUIFrame.setVisible(true);
     
@@ -42,11 +40,14 @@ public class CustomerGUI{
     weighItem = new JButton("Weigh Item");
     weighLabel = new JLabel();
     
-   //For Hera --> the same as above but for search item, call attendant and pay with card
-    
     searchItem = new JButton("Search Item");
-    callAttendant = new JButton("Call Attendant");
+    searchItemLabel = new JLabel();
     
+    callAttendant = new JButton("Call Attendant");
+    attendantLabel = new JLabel();
+    
+    payWithCard = new JButton("Pay with Card");
+    cardPaymentLabel = new JLabel();
     
     //Updating the item's barcode status
     scanBarcode.addActionListener(e -> {
@@ -56,20 +57,35 @@ public class CustomerGUI{
     
     //Updating the item's weight status
     weighItem.addActionListener(e -> {
-      String item = checkoutMethod("Place item on scale");
-      weighLabel.setText(item + "Item Successfully Weighed");
+      String item = checkoutMethod("");
+      weighLabel.setText(item + "Item Successfully Weighed!");
     });
     
     //Updating the item's PLU status
     enterPLU.addActionListener(e -> {
       String item = checkoutMethod("");
-      pluLabel.setText(item + "Item Scanned");
+      pluLabel.setText(item + "PLU number was entered and item has been scanned");
     });
     
-    //For Hera --> the same as above for search item, call attendent, pay with credit card
+    //updating the item's search status
+    searchItem.addActionListener(e -> {
+    	String item = checkoutMethod("");
+    	searchItemLabel.setText(item + "Item successfully found!");
+    });
     
+    //updating the attendant's status
+    callAttendant.addActionListener(e -> {
+    	String item = checkoutMethod("");
+    	attendantLabel.setText(item + "Attendant should be arriving shortly");
+    });
     
-    //Adding the buttons and labels to the pannel
+    //updating the payment status
+    payWithCard.addActionListener(e -> {
+    	String item = checkoutMethod("");
+    	cardPaymentLabel.setText(item + "Payment was suucessful!");
+    });
+
+    //Adding the buttons and labels to the panel
     GUIPanel.add(scanBarcode);
     GUIPanel.add(itemLabel);
     
@@ -79,11 +95,17 @@ public class CustomerGUI{
     GUIPanel.add(weighItem);
     GUIPanel.add(weighLabel);
     
-    //For Hera
     GUIPanel.add(searchItem);
+    GUIPanel.add(searchItemLabel);
+    
     GUIPanel.add(callAttendant);
+    GUIPanel.add(attendantLabel);
+    
+    GUIPanel.add(payWithCard);
+    GUIPanel.add(cardPaymentLabel);
     }
     
+  //this fucntion is used to print a message when a button is clicked
     private String checkoutMethod(String item) {
       return "";
     }
@@ -92,4 +114,3 @@ public class CustomerGUI{
       CustomerGUI customerStation = new CustomerGUI();
     }
 }
-  

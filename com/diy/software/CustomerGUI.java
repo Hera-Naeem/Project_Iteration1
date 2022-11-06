@@ -107,7 +107,7 @@ public class CustomerGUI{
     GUIPanel.add(cardPaymentLabel);
     }
     
-  //this fucntion is used to print a message when a button is clicked
+  //this function is used to print a message when a button is clicked
     private String checkoutMethod(String item) {
       return "";
     }

@@ -58,31 +58,31 @@ public class CustomerGUI{
     //Updating the item's weight status
     weighItem.addActionListener(e -> {
       String item = checkoutMethod("");
-      weighLabel.setText(item + "Item Successfully Weighed!");
+      weighLabel.setText(item + "Item weighed successfully!");
     });
     
     //Updating the item's PLU status
     enterPLU.addActionListener(e -> {
       String item = checkoutMethod("");
-      pluLabel.setText(item + "PLU number was entered and item has been scanned");
+      pluLabel.setText(item + "PLU number entered, and the item has been scanned successfully");
     });
     
     //updating the item's search status
     searchItem.addActionListener(e -> {
     	String item = checkoutMethod("");
-    	searchItemLabel.setText(item + "Item successfully found!");
+    	searchItemLabel.setText(item + "Item found and scanned successfully!");
     });
     
     //updating the attendant's status
     callAttendant.addActionListener(e -> {
     	String item = checkoutMethod("");
-    	attendantLabel.setText(item + "Attendant should be arriving shortly");
+    	attendantLabel.setText(item + "Attendant arriving shortly");
     });
     
     //updating the payment status
     payWithCard.addActionListener(e -> {
     	String item = checkoutMethod("");
-    	cardPaymentLabel.setText(item + "Payment was suucessful!");
+    	cardPaymentLabel.setText(item + "Payment was successful!");
     });
 
     //Adding the buttons and labels to the panel
